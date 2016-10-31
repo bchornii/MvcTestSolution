@@ -8,11 +8,30 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Представление ActionName</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
 </head>
 <body>
     <div>
         <div>Контроллер: <strong>@ViewBag.Controller</strong></div>
-        <div>Метод действия: <strong>@ViewBag.Action</strong></div>
+        <div>Метод действия: <strong>@ViewBag.Action</strong>
+        </div>
+        <div>
+            @*@Html.ActionLink("Generated URL for link" ,"CustomVariable", "Home", 
+            new
+            {
+                id = "Hello from action link 2"            
+            }, 
+            new
+            {
+                @class = "btn btn-success"
+            })*@
+
+            @Html.ActionLink("Generated Url","LegacyAction", new { legacyURL = "~/old/NET_Framework_4"});
+
+            @*Bad aproach because of dependency on route name*@
+            @*@Html.RouteLink("Generated URL", "MyOtherRoute", "Index", "Customer");*@ 
+        </div>
     </div>
 </body>
 </html>

@@ -12,7 +12,7 @@ namespace MvcTestPro4_UrlRoutes.Controllers
             return View("ActionName");
         }
 
-        public ActionResult CustomVariable(string id = "<'id'variable has not been set>")
+        public ActionResult CustomVariable(string id)
         {
             ViewBag.Controller = "Home";
             ViewBag.Action = "CustomVariable";
@@ -27,5 +27,14 @@ namespace MvcTestPro4_UrlRoutes.Controllers
 
             return View();
         }
+
+        public RedirectToRouteResult MyActionMethod() => RedirectToAction("Index");
+
+        public RedirectToRouteResult MyActionMethodV2() => RedirectToRoute(new
+        {
+            controller = "Home",
+            action = "CustomVariable",
+            id = "Hello from redirect"
+        });
     }
 }

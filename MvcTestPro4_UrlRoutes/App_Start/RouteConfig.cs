@@ -1,10 +1,5 @@
 ﻿using MvcTestPro4_UrlRoutes.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Mvc.Routing.Constraints;
 using System.Web.Routing;
 
 namespace MvcTestPro4_UrlRoutes
@@ -15,15 +10,31 @@ namespace MvcTestPro4_UrlRoutes
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // Route with 3 segments
-            routes.MapRoute(name: "CustomRoute1",
-                url: "Public/{controller}/{action}",
-                defaults: new { action = "Index", controller = "Home" });
+            // Mvc route attributes
+            routes.MapMvcAttributeRoutes();
 
-            // Route with pseudonym for controller
-            routes.MapRoute(name: "CustomRoute2",
-                url: "Shop/{action}",
-                defaults: new { action = "Index", controller = "Admin" });
+            // Custom http handler
+            routes.Add(new Route("SayHello", new CustomRouterHandler()));
+
+            // Custom route
+            routes.Add(new LegacyRoute(new []{
+                "~/articles/About_ASPNET_MVC",
+                "~/old/NET_Framework_4"
+            }));
+
+            //routes.MapRoute("NewRoute",
+            //    url: "App/Do{action}",
+            //    defaults: new { controller = "Home" });
+
+            // Route with 3 segments
+            //routes.MapRoute(name: "CustomRoute1",
+            //    url: "Public/{controller}/{action}",
+            //    defaults: new { action = "Index", controller = "Home" });
+
+            //// Route with pseudonym for controller
+            //routes.MapRoute(name: "CustomRoute2",
+            //    url: "Shop/{action}",
+            //    defaults: new { action = "Index", controller = "Admin" });
 
             // The most common route (the least common from top)
             // When use namespace then MVC first of all looking for controller there, and if it couldn't find appropriate
@@ -32,17 +43,17 @@ namespace MvcTestPro4_UrlRoutes
             var r = routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}/{*catchall}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "MvcTestPro4_UrlRoutes.Controllers" },
-                constraints: new
-                {
-                    id = new CompoundRouteConstraint(new IRouteConstraint[]
-                    {
-                        new AlphaRouteConstraint(),
-                        new LengthRouteConstraint(0,5)
-                    }),
-                    custom = new UserAgentConstraint("Chrome")
-                }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }//,
+                //namespaces: new[] { "MvcTestPro4_UrlRoutes.Controllers" },
+                //constraints: new
+                //{
+                //    id = new CompoundRouteConstraint(new IRouteConstraint[]
+                //    {
+                //        new AlphaRouteConstraint(),
+                //        new LengthRouteConstraint(0,5)
+                //    }),
+                //    custom = new UserAgentConstraint("Chrome")
+                //}
             );
             r.DataTokens["UseNamespaceFallback"] = false;
 
