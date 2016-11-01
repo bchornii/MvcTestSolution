@@ -16,5 +16,7 @@ namespace MvcTestPro1.Models
 
         [Required(ErrorMessage = "Please, confirm you tralala")]
         public bool? WillAttend { get; set; }
+
+        public string Message { get; set; }
     }
 }

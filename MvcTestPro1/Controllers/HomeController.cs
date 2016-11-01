@@ -17,10 +17,11 @@ namespace MvcTestPro1.Controllers
         [HttpGet]
         public ActionResult RsvpForm()
         {
-            return View();
+            return View(new GuestResponse { Message = "Ok"});
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ViewResult RsvpForm(GuestResponse guest)
         {
             if (ModelState.IsValid)

@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    @{
+    @*@{
         try
         {
             WebMail.SmtpServer = "smtp.meta.ua";
@@ -35,7 +35,7 @@
         {
             @:<b>Error was thrown.</b>
         }
-    }
+    }*@
 <div>
     <div class="text-center">
         <h1>Спасибо, @Model.Name!</h1>
@@ -43,6 +43,7 @@
             @if (Model.WillAttend == true)
             {
                 @:Здорово что вы придете, напитки уже в холодильнике ;)
+                @:P.S. @Model.Message
             }
             else
             {

@@ -23,7 +23,9 @@
     <div class="panel-body">
         @using (Html.BeginForm())
         {
-            @Html.ValidationSummary()
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x => x.Message)
+            @Html.ValidationSummary("", new { @class = "text-danger" })
             <div class="form-group">
                 <label>Your name</label>
                 @Html.TextBoxFor(x => x.Name, new {@class = "form-control"})
