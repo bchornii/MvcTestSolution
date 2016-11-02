@@ -14,7 +14,7 @@ namespace MvcTestPro4_UrlRoutes
             routes.MapMvcAttributeRoutes();
 
             // Custom http handler
-            routes.Add(new Route("SayHello", new CustomRouterHandler()));
+            //routes.Add(new Route("SayHello", new CustomRouterHandler()));
 
             // Custom route
             routes.Add(new LegacyRoute(new []{
@@ -43,8 +43,8 @@ namespace MvcTestPro4_UrlRoutes
             var r = routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}/{*catchall}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }//,
-                //namespaces: new[] { "MvcTestPro4_UrlRoutes.Controllers" },
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "MvcTestPro4_UrlRoutes.Controllers" }
                 //constraints: new
                 //{
                 //    id = new CompoundRouteConstraint(new IRouteConstraint[]

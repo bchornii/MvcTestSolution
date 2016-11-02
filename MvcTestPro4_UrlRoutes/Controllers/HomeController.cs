@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace MvcTestPro4_UrlRoutes.Controllers
 {
@@ -36,5 +37,11 @@ namespace MvcTestPro4_UrlRoutes.Controllers
             action = "CustomVariable",
             id = "Hello from redirect"
         });
+
+        [ChildActionOnly]
+        public ActionResult Time(DateTime? userTime = null)
+        {
+            return PartialView(DateTime.Now);
+        }
     }
 }

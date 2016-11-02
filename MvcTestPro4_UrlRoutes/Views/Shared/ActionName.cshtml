@@ -30,7 +30,11 @@
             @Html.ActionLink("Generated Url","LegacyAction", new { legacyURL = "~/old/NET_Framework_4"});
 
             @*Bad aproach because of dependency on route name*@
-            @*@Html.RouteLink("Generated URL", "MyOtherRoute", "Index", "Customer");*@ 
+            @*@Html.RouteLink("Generated URL", "MyOtherRoute", "Index", "Customer");*@
+
+            @Html.Partial("MyList")
+            @Html.Partial("MyStronglyTypedPartial",new List<string> {"Apple", "Orange", "Pear"})
+            @Html.Action("Time") 
         </div>
     </div>
 </body>
