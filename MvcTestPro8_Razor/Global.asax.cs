@@ -1,7 +1,8 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using MvcTestPro8_Razor.Infrastructure;
 
-namespace MvcTestPro4_UrlRoutes
+namespace MvcTestPro8_Razor
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -10,7 +11,8 @@ namespace MvcTestPro4_UrlRoutes
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            ControllerBuilder.Current.DefaultNamespaces.Add("MvcTestPro4_UrlRoutes.Controllers");
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new CustomLocationViewEngine());
         }
     }
 }

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <style>
+        div.layout {
+            background-color: lightblue;
+        }
+
+        div.view {
+            border: 1px solid orange;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    @RenderSection("Header")
+    <div class="layout">
+        This text is inside of composition
+    </div>
+    @RenderSection("Body")
+    <div class="layout">
+        This text is inside of composition
+    </div>
+    @RenderSection("Footer")
+    <div class="layout">
+        This text is inside of composition
+    </div>
+</body>
+</html>

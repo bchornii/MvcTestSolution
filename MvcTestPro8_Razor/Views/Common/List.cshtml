@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "List";
+    Layout = null;
+}
+
+<em>Это файл представления <b>~/Views/Common/List.cshtml</b></em>
+<br /><br />
+@Html.Partial("MyPartial")
+@Html.Partial("MyStronglyTypedPartial",
+    new List<string> { "Яблоко", "Апельсин", "Груша" })
+@Html.Action("Time")

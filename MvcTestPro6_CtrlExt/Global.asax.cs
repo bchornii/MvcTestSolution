@@ -1,7 +1,8 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using MvcTestPro6_CtrlExt.Infrastructure;
 
-namespace MvcTestPro4_UrlRoutes
+namespace MvcTestPro6_CtrlExt
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -10,7 +11,8 @@ namespace MvcTestPro4_UrlRoutes
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            ControllerBuilder.Current.DefaultNamespaces.Add("MvcTestPro4_UrlRoutes.Controllers");
+            ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory(new CustomControllerActivator()));
+            //ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
         }
     }
 }

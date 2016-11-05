@@ -43,8 +43,8 @@ namespace MvcTestPro4_UrlRoutes
             var r = routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}/{*catchall}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "MvcTestPro4_UrlRoutes.Controllers" }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }//,
+                //namespaces: new[] { "MvcTestPro4_UrlRoutes.Controllers" } // -- moved into Global.asax
                 //constraints: new
                 //{
                 //    id = new CompoundRouteConstraint(new IRouteConstraint[]
