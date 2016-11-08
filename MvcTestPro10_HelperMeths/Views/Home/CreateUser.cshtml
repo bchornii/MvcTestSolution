@@ -1,0 +1,37 @@
+﻿@using MvcTestPro10_HelperMeths.Models
+@model MvcTestPro10_HelperMeths.Models.User
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "CreateUser";
+    Html.EnableClientValidation(false);
+}
+
+<h2>Создать пользователя</h2>
+@using (Html.BeginRouteForm("FormRoute", null, FormMethod.Post,
+                new { data_formType = "user" }))
+{
+    <div class="item">
+        <label>UserId</label>        
+        @Html.TextBoxFor(x => x.UserId)
+    </div>
+    <div class="item">
+        <label>Имя</label>        
+        @Html.TextBoxFor(x => x.FirstName)
+    </div>
+    <div class="item">
+        <label>Фамилия</label>
+        @Html.TextBoxFor(x => x.LastName)
+    </div>
+    <div class="item">
+        <label>Role</label>
+        @Html.DropDownListFor(x => x.Role, new SelectList(Enum.GetNames(typeof(Role))))
+    </div>
+    <div class="item">
+        <label>Birth date</label>
+        @Html.TextBoxFor(x => x.BirthDate, new { type = "datetime" })
+    </div>
+
+
+    <input type="submit" value="Отправить" />
+}
