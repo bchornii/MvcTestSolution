@@ -27,15 +27,6 @@
     <p>Data loaging...</p>
 </div>
 
-@*@using (Ajax.BeginForm("GetPeople", ajaxOptions))
-{
-    <div>
-        @Html.DropDownList("selectedRole", new SelectList(
-            new[] {"All"}.Concat(Enum.GetNames(typeof(Role)))))
-        <button type="submit">Отобразить</button>
-    </div>
-}*@
-
 @using (Ajax.BeginForm("GetPeople", new AjaxOptions
 {
     Url = Url.Action("GetPeopleDataJson"),
