@@ -31,9 +31,16 @@ namespace MvcTestPro11_Models.Controllers
             return View(names);
         }
 
-        public ActionResult Address(List<AdressSummary> addresses)
+        //public ActionResult Address(List<AdressSummary> addresses)
+        //{
+        //    addresses = addresses ?? new List<AdressSummary>();
+        //    return View(addresses);
+        //}
+
+        public ActionResult Address()
         {
-            addresses = addresses ?? new List<AdressSummary>();
+            var addresses = new List<AdressSummary>();
+            UpdateModel(addresses);
             return View(addresses);
         }
 

@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E4ADB7D5-0C75-4462-BAE4-0E6AD67518F9}</ProjectGuid>
+    <ProjectGuid>{F9CCD9F1-DC61-4000-BBD2-0588E5126408}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcTestPro11_Models</RootNamespace>
-    <AssemblyName>MvcTestPro11_Models</AssemblyName>
+    <RootNamespace>MvcTestPro12_ModelValid</RootNamespace>
+    <AssemblyName>MvcTestPro12_ModelValid</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -117,23 +117,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Properties\PublishProfiles\web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\CreateUser.cshtml" />
-    <Content Include="Views\Home\DisplaySummary.cshtml" />
-    <Content Include="Views\Home\Names.cshtml" />
-    <Content Include="Views\Home\Address.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -141,14 +134,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\AddressSummaryBinder.cs" />
-    <Compile Include="Infrastructure\CountryValueProvider.cs" />
-    <Compile Include="Infrastructure\CustomValueProviderFactory.cs" />
-    <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\AddressSummary.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Infrastructure\MustBeTrueAttribute.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Views\Home\MakeBooking.cshtml" />
+    <Content Include="Views\Home\Completed.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -156,13 +148,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -186,9 +172,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51335</DevelopmentServerPort>
+          <DevelopmentServerPort>50828</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51335/</IISUrl>
+          <IISUrl>http://localhost:50828/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

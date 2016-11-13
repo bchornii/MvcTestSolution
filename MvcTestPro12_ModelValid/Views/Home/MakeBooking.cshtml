@@ -1,0 +1,15 @@
+﻿@model MvcTestPro12_ModelValid.Models.Appointment
+
+@{
+    ViewBag.Title = "Запись на собеседование";
+}
+
+<h3>Записаться</h3>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <p>Ваше имя: @Html.EditorFor(m => m.ClientName)</p>
+    <p>Дата записи: @Html.EditorFor(m => m.Date)</p>
+    <p>@Html.EditorFor(m => m.TermsAccepted) Я принимаю правила и условия</p>
+    <input type="submit" value="Записаться" />
+}
